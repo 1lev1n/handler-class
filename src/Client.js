@@ -48,6 +48,6 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
         })
     }
 
-    get getCommand(id) { return this.cmds.find((cmd) => cmd.name == id || cmd.aliases == id); } // Associando uma propriedade da classe filha(child-class)(cmds) á getCommand('id')
+    getCommand(id) { return this.cmds.find((cmd) => cmd.name == id || cmd.aliases == id); } // Associando uma propriedade da classe filha(child-class)(cmds) á getCommand('id')
 
 }
