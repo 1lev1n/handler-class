@@ -1,3 +1,4 @@
+require('ylenv').load();
 const { login } = new (require("./src/Client")); // Puxando a classe Client com a propriedade 'login' do cliente do discordjs
 
 login('token'); // Logando na conta
