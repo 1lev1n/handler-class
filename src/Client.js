@@ -1,7 +1,5 @@
 const { Client, Collection } = require("discord.js"),
-      { readdirSync } = require("fs"),
-      { basename } = require("path");
-
+      { readdirSync } = require("fs");
 // Pegar as propriedades Client, Collection, readdirSync, basename das livrarias acima
 
 module.exports = class extends Client { // Exportando uma classe extendendo o Cliente do discord.js
@@ -28,7 +26,7 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
             // let declara uma variável de escopo no bloco atual
 
             let Command = new (require(dir+file))(this),
-                commandName = basename(file, '.js');
+                commandName = file.replace(/.js/g, '');
 
             // Declarando variáveis
 
@@ -40,7 +38,7 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
         readdirSync(dir).forEach((file) => { // Percorrer a tree até a 'dir'
     
             let event = require(dir+file),
-                eventName = basename(file, '.js');
+                eventName = file.replace(/.js/g, '');
 
             // Declarando variáveis
 
