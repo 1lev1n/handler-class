@@ -36,7 +36,7 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
         })
     }
 
-    addEvents(dir = `${__dirname}/listeners/`) { // Definir o método addEvents() com o parâmetro 'dir'
+    addEvents(dir = `${__dirname}/events/`) { // Definir o método addEvents() com o parâmetro 'dir'
         readdirSync(dir).forEach((file) => { // Percorrer a tree até a 'dir'
     
             let event = require(dir+file),
