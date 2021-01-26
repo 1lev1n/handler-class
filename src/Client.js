@@ -5,8 +5,8 @@ const { Client, Collection } = require("discord.js"),
 // Pegar as propriedades Client, Collection, readdirSync, basename das livrarias acima
 
 module.exports = class extends Client { // Exportando uma classe extendendo o Cliente do discord.js
-    constructor() {
-        super(); // Sempre quando extender uma classe colocar o super
+    constructor(obj) {
+        super(obj); // Sempre quando extender uma classe colocar o super
         // Nunca deve ser depois de definir as child-classes
 
         this.cmds = new Collection();
@@ -22,7 +22,7 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
         // Executando os métodos
     }
 
-    addCommands(dir = './src/commands/') { // Definir o método addCommands() com o parâmetro 'dir'
+    addCommands(dir = `${__dirname}/commands/`) { // Definir o método addCommands() com o parâmetro 'dir'
         readdirSync(dir).forEach((file) => { // Percorrer a tree até a 'dir'
 
             // let declara uma variável de escopo no bloco atual
@@ -36,7 +36,7 @@ module.exports = class extends Client { // Exportando uma classe extendendo o Cl
         })
     }
 
-    addEvents(dir = './src/listeners/') { // Definir o método addEvents() com o parâmetro 'dir'
+    addEvents(dir = `${__dirname}/events/`) { // Definir o método addEvents() com o parâmetro 'dir'
         readdirSync(dir).forEach((file) => { // Percorrer a tree até a 'dir'
     
             let event = require(dir+file),
